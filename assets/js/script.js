@@ -1,8 +1,9 @@
-const today = moment().startOf('hour');
-$("#currentDate").text(today.format("DD MMM YYYY"));
+const now = moment().startOf('hour');
+const currentHour = now.hour();
+$("#currentDate").text(now.format("DD MMM YYYY"));
 
-const fromTime = today.clone().hour(9);
-const toTime = today.clone().hour(17);
+const fromTime = now.clone().hour(9);
+const toTime = now.clone().hour(17);
 
 let planner;
 const LOCAL_STORAGE_KEY = 'planner';
@@ -21,6 +22,16 @@ for (let currentTime = fromTime.clone(); currentTime.isSameOrBefore(toTime); cur
 	const hourSection = $("#cloneItem").clone();
 
 	// Modify the cloned hour section
+	if (hour < currentHour) {
+		hourSection.addClass('past');
+	}
+	if (hour === currentHour) {
+		hourSection.addClass('present');
+	}
+	if (hour > currentHour) {
+		hourSection.addClass('future');
+	}
+
 	hourSection.removeAttr('id');
 	hourSection.data("hour", hour);
 	hourSection.find(".hour").text(currentTime.format("hA"));
@@ -29,6 +40,7 @@ for (let currentTime = fromTime.clone(); currentTime.isSameOrBefore(toTime); cur
 		hourSection.find(".memoContainer").val(planner[hour]);
 	}
 
+	// Append it into planner container
 	$("#plannerContainer").append(hourSection);
 }
 

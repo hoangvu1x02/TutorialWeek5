@@ -19,6 +19,18 @@
 	border: solid thin black;
 }
 
+.hourSection.past {
+	background-color: lightgray;
+}
+
+.hourSection.present {
+	background-color: dodgerblue;
+}
+
+.hourSection.future {
+	background-color: lightgreen;
+}
+
 .hourSection > * {
 	height: 100%;
 	display: flex;
@@ -33,7 +45,8 @@
 .memoContainer {
 	border: none;
 	width: 100%;
-    height: calc(100% - 4px);
+	height: calc(100% - 4px);
+	background-color: transparent;
 }
 
 .saveButton {
