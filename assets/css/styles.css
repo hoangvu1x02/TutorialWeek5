@@ -1,3 +1,41 @@
 #header {
 	text-align: center;
 }
+
+#cloneItem {
+	display: none;
+}
+
+#plannerContainer {
+    margin: 0 20%;
+}
+
+.hourSection {
+    display: flex;
+    flex-direction: row;
+	align-items: center;
+	height: 40px;
+	margin-bottom: 3px;
+	border: solid thin black;
+}
+
+.hourSection > * {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.hour, .saveButton {
+	flex-basis: 10%;
+}
+
+.memoContainer {
+	border: none;
+	width: 100%;
+    height: calc(100% - 4px);
+}
+
+.saveButton {
+	cursor: pointer;
+}
